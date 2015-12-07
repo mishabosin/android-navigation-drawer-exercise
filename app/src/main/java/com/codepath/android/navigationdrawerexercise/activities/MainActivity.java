@@ -46,6 +46,12 @@ public class MainActivity extends ActionBarActivity {
 
         // Setup drawer view
         setupDrawerContent(nvDrawer);
+
+        // Load the initial fragment
+        nvDrawer.getMenu().getItem(0).setChecked(true);
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, new SouthParkFragment()).commit();
+        setTitle(R.string.south_park);
     }
 
     private ActionBarDrawerToggle setupDrawerToggle() {
